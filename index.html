@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: bloglist
 title: My Blog
 ---
 
@@ -37,7 +37,7 @@ title: My Blog
         <li><a href="#" class="link-icon24 link-icon24-4">128</a></li>
       </ul>
     </div>
-    <a href="#" class="image image-full"><img src="images/n33-robot-invader.jpg" alt="" /></a>
+    <a href="#" class="image image-full"><img src="{{ site.url }}/images/n33-robot-invader.jpg" alt="" /></a>
     {{ post.content }}
   </article>
 {% endfor %}
@@ -57,7 +57,7 @@ title: My Blog
     {% if paginator.page == 1 %}
       <a href="#" class="active">1</a>
       {% else %}
-        <a href="/" class="active">1</a>
+        <a href="/">1</a>
       {% endif %}
     {% for count in (2..paginator.total_pages-1) %}
       {% if count < 5 %}
@@ -69,7 +69,11 @@ title: My Blog
         {% endif %}
       {% endfor %}
     <span>&hellip;</span>
-    <a href="/page{{ paginator.total_pages }}">{{ paginator.total_pages }}</a>
+    {% if paginator.page == paginator.total_pages %}
+      <a href="/page{{ paginator.total_pages }}" class="active">{{ paginator.total_pages }}</a>
+    {% else %}
+      <a href="/page{{ paginator.total_pages }}">{{ paginator.total_pages }}</a>
+    {% endif %}
   </div>
   {% if paginator.next_page %}
     <a href="/page{{ paginator.next_page }}" class="button next">Next Page</a>
