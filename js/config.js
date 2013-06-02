@@ -1,3 +1,5 @@
+---
+---
 /*
 	Striped 2.0 by HTML5 Up!
 	html5up.net | @n33co
@@ -5,7 +7,7 @@
 */
 
 window._skel_config = {
-	prefix: 'css/style',
+	prefix: '{{ site:url }}/css/style',
 	resetCSS: true,
 	useOrientation: true,
 	breakpoints: {
