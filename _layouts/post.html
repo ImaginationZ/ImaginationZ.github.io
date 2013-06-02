@@ -8,8 +8,14 @@ layout : blog
         if they get too long. You can also remove the "byline" span entirely if you don't
         need a byline.
       -->
-      <h2>{{ post.title }}</h2>
-      <span class="byline">{{ post.byline }}</span>
+      <h2>{{ page.title }}</h2>
+      <span class="byline">
+        {% if page.byline %}
+        {{ page.byline }}
+        {% else %}
+        Another silly post I fogot to add an index!
+        {% endif %}
+      </span>
     </header>
     <div class="info">
       <!--
@@ -20,7 +26,7 @@ layout : blog
         the entire "date" element.
         
       -->
-      <span class="date">{{ post.date }}</span> 
+      <span class="date">{{ page.date }}</span> 
       <!--
         Note: You can change the number of list items in "stats" to whatever you want.
       -->
