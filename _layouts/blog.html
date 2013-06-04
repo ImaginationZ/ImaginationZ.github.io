@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Zen | Blog List.</title>
+    <title>
+      {% if page.title %}
+      {{ page.title }}
+      {% else %}
+      Zen | Blog.
+      {% endif %}
+</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -21,6 +27,8 @@
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
     <!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
   </head>
+
+
   <!--
     Note: Set the body element's class to "left-sidebar" to position the sidebar on the left.
     Set it to "right-sidebar" to, you guessed it, position it on the right.
@@ -34,7 +42,6 @@
           <div id="content">
             <div id="content-inner">
           
-             
               <!-- Post -->
                 {{ content }}
             
@@ -53,26 +60,30 @@
             <!-- Nav -->
               <nav id="nav">
                 <ul>
-                  <li class="current_page_item"><a href="/">Latest Post</a></li>
-                  <li><a href="#">Archives</a></li>
-                  <li><a href="#">About Me</a></li>
-                  <li><a href="#">Contact Me</a></li>
-                  <li><a href="{{ site.zh }}">中文主站</a></li>
+                  <li class="current_page_item"><a href="/">Site</a></li>
+                  <li><a href="#">Archive</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="{{ site.cn }}">中文</a></li>
                 </ul>
               </nav>
 
             <!-- Search -->
               <section class="is-search">
-                <form method="post" action="#">
-                  <input type="text" class="text" name="search" placeholder="Search" />
+                <form action="http://www.baidu.com/baidu" />
+                <input type=text class="text" name=word size=30 placeholder="搜索"/>
+                <input name=tn type=hidden value="bds">
+                <input name=cl type=hidden value="3">
+                <input name=ct type=hidden value="2097152">
+                <input name=si type=hidden value="izeng.me">
                 </form>
-              </section>
-          
+               </section>
+
             <!-- Text -->
               <section class="is-text-style1">
                 <div class="inner">
                   <p>
-                    <strong>Programer</strong><br/><a href="http://huangzen.tuchong.com">Photographer(or just a camrera-owner)</a><br/>can do <strong>PAINTING?</strong><br/>Crazy Guy<I> and </I><br/><B>Paranoia</B>
+                    <strong>Programmer</strong><br/><a href="http://huangzen.tuchong.com">Photographer</a><br/>can do<strong>PAINTING?</strong><br/>Crazy guy<I> and</I><br/><B>Paranoia</B>
                   </p>
                 </div>
               </section>
@@ -80,7 +91,7 @@
             <!-- Recent Posts -->
               <section class="is-recent-posts">
                 <header>
-                  <h2>Recent Posts</h2>
+                  <h2>Latest Posts</h2>
                 </header>
                 <ul>
                   {% for post in site.posts limit:5 %}
@@ -88,85 +99,25 @@
                   {% endfor %}
                 </ul>
               </section>
-          
-            <!-- Recent Comments -->
-              <section class="is-recent-comments">
-                <header>
-                  <h2>Recent Comments</h2>
-                </header>
-                <ul>
-                  <li>case on <a href="#">Now Full Cyborg</a></li>
-                  <li>molly on <a href="#">Untitled Post</a></li>
-                  <li>case on <a href="#">Temporal Flux</a></li>
-                </ul>
-              </section>
-          
+
             <!-- Calendar -->
               <section class="is-calendar">
                 <div class="inner">
                   <table>
-                    <caption>February 2013</caption>
-                    <thead>
-                      <tr>
-                        <th scope="col" title="Monday">M</th>
-                        <th scope="col" title="Tuesday">T</th>
-                        <th scope="col" title="Wednesday">W</th>
-                        <th scope="col" title="Thursday">T</th>
-                        <th scope="col" title="Friday">F</th>
-                        <th scope="col" title="Saturday">S</th>
-                        <th scope="col" title="Sunday">S</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td colspan="4" class="pad"><span>&nbsp;</span></td>
-                        <td><span>1</span></td>
-                        <td><span>2</span></td>
-                        <td><span>3</span></td>
-                      </tr>
-                      <tr>
-                        <td><span>4</span></td>
-                        <td><span>5</span></td>
-                        <td><a href="#">6</a></td>
-                        <td><span>7</span></td>
-                        <td><span>8</span></td>
-                        <td><span>9</span></td>
-                        <td><a href="#">10</a></td>
-                      </tr>
-                      <tr>
-                        <td><span>11</span></td>
-                        <td><span>12</span></td>
-                        <td><span>13</span></td>
-                        <td class="today"><a href="#">14</a></td>
-                        <td><span>15</span></td>
-                        <td><span>16</span></td>
-                        <td><span>17</span></td>
-                      </tr>
-                      <tr>
-                        <td><span>18</span></td>
-                        <td><span>19</span></td>
-                        <td><span>20</span></td>
-                        <td><span>21</span></td>
-                        <td><span>22</span></td>
-                        <td><a href="#">23</a></td>
-                        <td><span>24</span></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">25</a></td>
-                        <td><span>26</span></td>
-                        <td><span>27</span></td>
-                        <td><span>28</span></td>
-                        <td class="pad" colspan="3"><span>&nbsp;</span></td>
-                      </tr>
-                    </tbody>
+                    <caption>Last update on</caption>
+                    <caption>{{ site.time | date_to_long_string }}</caption>
                   </table>
                 </div>
               </section>
 
+
+              
             <!-- Copyright -->
               <div id="copyright">
                 <p>
                   &copy; ZEN.<br />
+                  powered by <a href="http://jekyllrb.com">jekyll</a><br />
+                  theme by <a href="http://html5up.net">html5up</a><br />
                 </p>
               </div>
 
@@ -174,5 +125,7 @@
 
       </div>
 
+  <img src="http://img.tongji.linezing.com/3223267/tongji.gif"/>
+  
   </body>
 </html>

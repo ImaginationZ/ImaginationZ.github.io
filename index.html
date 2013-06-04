@@ -6,7 +6,9 @@ title: My Blog
 
 
 <!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
+<!-- Important -->
+{% for post in site.posts %}
+{% if post.important %}
   <article class="is-post is-post-excerpt">
     <header>
       <!--
@@ -19,7 +21,7 @@ title: My Blog
         {% if post.byline %}
         {{ post.byline }}
         {% else %}
-        Another silly post I fogot to add an index!
+        Another silly post forgot to add a byline
         {% endif %}
       </span>
     </header>
@@ -36,16 +38,102 @@ title: My Blog
       <!--
         Note: You can change the number of list items in "stats" to whatever you want.
       -->
-      <ul class="stats">
-        <li><a href="#" class="link-icon24 link-icon24-1">16</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-2">32</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-3">64</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-4">128</a></li>
+      <ul class="stats"><!-- JiaThis Button BEGIN -->
+        <li><a>Share to:</a></li>
+        <div class="jiathis_style_32x32">
+          <li><a class="jiathis_button_renren"> </a></li>
+          <li><a class="jiathis_button_tsina"> </a></li>
+          <li><a class="jiathis_button_tqq"> </a></li>
+          <li><a class="jiathis_button_weixin"> </a></li>
+          <li><a class="jiathis_button_qzone"> </a></li>
+          <li><a href="http://www.jiathis.com/share?uid=1781960" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a></li>
+        </div>
+        <script type="text/javascript">
+          var jiathis_config = {
+            data_track_clickback:true,
+            url:"{{ site.url }}{{ post.url }}",
+            summary:"{{ post.byline }}",
+            title:"{{ post.title }}",
+            pic:"{% if post.pic %}{{ site.url }}{{ post.pic }}{% endif %}",
+            hideMore:false
+            };
+        </script>
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1781960" charset="utf-8"></script>
+        <!-- JiaThis Button END -->
       </ul>
     </div>
-    <a href="#" class="image image-full"><img src="{{ site.url }}/images/n33-robot-invader.jpg" alt="" /></a>
+    {% if post.pic %}
+    <a href="{{ site.url }}{{ post.url }}" class="image image-full"><img src="{{ site.url }}{{ post.pic }}" alt="" /></a>
+    {% endif %}
     {{ post.content }}
+    <br/>
   </article>
+  {% endif %}
+{% endfor %}
+
+<!-- else -->
+{% for post in paginator.posts %}
+{% if post.important != 1 %}
+  <article class="is-post is-post-excerpt">
+    <header>
+      <!--
+        Note: Titles and bylines will wrap automatically when necessary, so don't worry
+        if they get too long. You can also remove the "byline" span entirely if you don't
+        need a byline.
+      -->
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <span class="byline">
+        {% if post.byline %}
+        {{ post.byline }}
+        {% else %}
+        Another silly post forgot to add a byline
+        {% endif %}
+      </span>
+    </header>
+    <div class="info">
+      <!--
+        Note: The date should be formatted exactly as it's shown below. In particular, the
+        "least significant" characters of the month should be encapsulated in a <span>
+        element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
+        Oh, and if you don't need a date for a particular page or post you can simply delete
+        the entire "date" element.
+        
+      -->
+      <span class="date">{{ post.date }}</span> 
+      <!--
+        Note: You can change the number of list items in "stats" to whatever you want.
+      -->
+      <ul class="stats"><!-- JiaThis Button BEGIN -->
+        <li><a>Share to:</a></li>
+        <div class="jiathis_style_32x32">
+          <li><a class="jiathis_button_renren"> </a></li>
+          <li><a class="jiathis_button_tsina"> </a></li>
+          <li><a class="jiathis_button_tqq"> </a></li>
+          <li><a class="jiathis_button_weixin"> </a></li>
+          <li><a class="jiathis_button_qzone"> </a></li>
+          <li><a href="http://www.jiathis.com/share?uid=1781960" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a></li>
+        </div>
+        <script type="text/javascript">
+          var jiathis_config = {
+            data_track_clickback:true,
+            url:"{{ site.url }}{{ post.url }}",
+            summary:"{{ post.byline }}",
+            title:"{{ post.title }}",
+            pic:"{% if post.pic %}{{ site.url }}{{ post.pic }}{% endif %}",
+            hideMore:false
+            };
+        </script>
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1781960" charset="utf-8"></script>
+        <!-- JiaThis Button END -->
+      </ul>
+    </div>
+    {% if post.pic %}
+    <a href="{{ site.url }}{{ post.url }}" class="image image-full"><img src="{{ site.url }}{{ post.pic }}" alt="" /></a>
+    {% endif %}
+    {{ post.content }}
+    <br/>
+  </article>
+  {% endif %}
 {% endfor %}
 
 

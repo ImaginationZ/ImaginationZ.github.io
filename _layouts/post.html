@@ -13,7 +13,7 @@ layout : blog
         {% if page.byline %}
         {{ page.byline }}
         {% else %}
-        Another silly post I fogot to add an index!
+        Another silly post forgot to add a byline
         {% endif %}
       </span>
     </header>
@@ -30,13 +30,51 @@ layout : blog
       <!--
         Note: You can change the number of list items in "stats" to whatever you want.
       -->
+        <!-- JiaThis Button BEGIN -->
       <ul class="stats">
-        <li><a href="#" class="link-icon24 link-icon24-1">16</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-2">32</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-3">64</a></li>
-        <li><a href="#" class="link-icon24 link-icon24-4">128</a></li>
+
+        <!-- JiaThis Button BEGIN -->
+        <li><a>Share to:</a></li>
+        <div class="jiathis_style_32x32">
+          <li><a class="jiathis_button_icons_1"> </a></li>
+          <li><a class="jiathis_button_icons_2"> </a></li>
+          <li><a class="jiathis_button_icons_3"> </a></li>
+          <li><a class="jiathis_button_icons_4"> </a></li>
+          <li><a class="jiathis_button_icons_5"> </a></li>
+          <li><a href="http://www.jiathis.com/share?uid=1781960" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a></li>
+        </div>
+        <script type="text/javascript">
+          var jiathis_config = {
+            data_track_clickback:true,
+            url:"{{ site.url }}{{ page.url }}",
+            summary:{{ page.byline }},
+            title:{{ page.title }},
+            pic:"{% if page.pic %}{{ site.url }}{{ page.pic }}{% endif %}",
+            hideMore:false
+            };
+        </script>
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1781960" charset="utf-8"></script>
+        <!-- JiaThis Button END -->
       </ul>
     </div>
-    <a href="#" class="image image-full"><img src="{{ site.url }}/images/n33-robot-invader.jpg" alt="" /></a>
+          {% if page.pic %}
+           <a href="#" class="image image-full"><img src="{{ site.url }}{{ page.pic }}" alt="" /></a>
+           {% endif %}
     {{ content }}
   </article>
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"cnizeng"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
