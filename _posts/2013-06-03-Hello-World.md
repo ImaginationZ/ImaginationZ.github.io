@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 你好 世界
+title: Say HELLO to the world
 date: Mon 03 Jun 20:12 2013
-byline: 而我走进深深深深的荒野中
+byline: And I ... stepping into the wild
 pic:
 important: 1
 ---
@@ -43,7 +43,7 @@ Z说， 你总是表现地像个忧天的老人. 或许吧.
 
 而我确实要走入深深的荒漠了.
 
-
+#Hello world
 #你好，世界.
 #你好，世傑.
 {% highlight c %}
