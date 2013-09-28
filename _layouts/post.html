@@ -1,80 +1,80 @@
----
-layout : blog
----
-<article class="is-post is-post-excerpt">
-    <header>
-      <!--
-        Note: Titles and bylines will wrap automatically when necessary, so don't worry
-        if they get too long. You can also remove the "byline" span entirely if you don't
-        need a byline.
-      -->
-      <h2>{{ page.title }}</h2>
-      <span class="byline">
-        {% if page.byline %}
-        {{ page.byline }}
+<!doctype html>
+<!--[if lt IE 7]><!--> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <!--[endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"><![endif]-->
+<head>
+{% include head.html %}
+</head>
+
+<body id="post" {% if page.image.feature %}class="feature"{% endif %} itemscope itemtype="http://schema.org/WebPage">
+
+{% include browser-upgrade.html %}
+{% include navigation.html %}
+
+{% if page.image.feature %}
+<div class="entry-header">
+  <div class="entry-image"><img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}" itemprop="image">
+    {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+{% endif %}
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        {% if page.link %}
+          <h1 class="entry-title" itemprop="name"><a href="{{ page.link }}">{{ page.title }}</a></h1>
         {% else %}
-        Another silly post forgot to add a byline
+          <h1 class="entry-title" itemprop="name"><a href="{{ page.url }}" rel="bookmark" title="{{ page.title }}" itemprop="url">{{ page.title }}</a></h1>
         {% endif %}
-      </span>
+        <h2>{{ page.date | date: "%B %d, %Y" }}</h2>
+      </div><!-- /.header-title-wrap -->
     </header>
-    <div class="info">
-      <!--
-        Note: The date should be formatted exactly as it's shown below. In particular, the
-        "least significant" characters of the month should be encapsulated in a <span>
-        element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
-        Oh, and if you don't need a date for a particular page or post you can simply delete
-        the entire "date" element.
-        
-      -->
-      <span class="date">{{ page.date }}</span> 
-      <!--
-        Note: You can change the number of list items in "stats" to whatever you want.
-      -->
-        <!-- JiaThis Button BEGIN -->
-      <ul class="stats">
-
-        <!-- JiaThis Button BEGIN -->
-        <li><a>Share to:</a></li>
-        <div class="jiathis_style_32x32">
-          <li><a class="jiathis_button_icons_1"> </a></li>
-          <li><a class="jiathis_button_icons_2"> </a></li>
-          <li><a class="jiathis_button_icons_3"> </a></li>
-          <li><a class="jiathis_button_icons_4"> </a></li>
-          <li><a class="jiathis_button_icons_5"> </a></li>
-          <li><a href="http://www.jiathis.com/share?uid=1781960" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a></li>
-        </div>
-        <script type="text/javascript">
-          var jiathis_config = {
-            data_track_clickback:true,
-            url:"{{ site.url }}{{ page.url }}",
-            summary:{{ page.byline }},
-            title:{{ page.title }},
-            pic:"{% if page.pic %}{{ site.url }}{{ page.pic }}{% endif %}",
-            hideMore:false
-            };
-        </script>
-        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1781960" charset="utf-8"></script>
-        <!-- JiaThis Button END -->
-      </ul>
-    </div>
-          {% if page.pic %}
-           <a href="#" class="image image-full"><img src="{{ site.url }}{{ page.pic }}" alt="" /></a>
-           {% endif %}
-    {{ content }}
+    <div class="entry-content" itemprop="description">
+      {{ content }}
+      <footer class="entry-meta">
+        <span class="entry-tags">{% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" title="Pages tagged {{ tag }}" rel="tag" class="tag">{{ tag }}</a>{% unless forloop.last %}{% endunless %}{% endfor %}</span>
+        <span><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}" itemprop="url">{{ page.title }}</a></span>
+        was published on <span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</span></time>
+        {% if page.modified %}(revised: <span class="entry-date date modified"><time datetime="{{ page.modified }}" itemprop="dateModified">{{ page.modified | date: "%m/%d/%Y" }}</time></span>){% endif %}
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" class="fn"><a href="{{ site.url }}/about" title="About {{ site.owner.name }}" itemprop="url">{{ site.owner.name }}</a></span></span>
+        {% include social_share.html %}
+      </footer>
+    </div><!-- /.entry-content -->
+    {% if site.disqus_shortname and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
+    {% if site.related_posts.size %}
+    <div class="read-more">
+      {% for post in site.related_posts limit:1 %}
+        <div class="read-more-header">
+          <a href="{{ site.url }}{{ page.previous.url }}" class="read-more-btn">Read More</a>
+        </div><!-- /.read-more-header -->
+        <div class="read-more-content">
+          <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+          <p>{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 140 }}&hellip;{% endif %} <a href="{{ site.url }}{{ post.url }}">Continue reading</a></p>
+        </div><!-- /.read-more-content -->
+      {% endfor %}
+      <div class="read-more-list">
+        {% for post in site.related_posts limit:2 offset:1 %}
+          <div class="list-item">
+            <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+            <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
+          </div><!-- /.list-item -->
+        {% endfor %}
+      </div><!-- /.read-more-list -->
+      {% endif %}
+    </div><!-- /.read-more -->
   </article>
+</div><!-- /#main -->
 
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"cnizeng"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
 
+{% include scripts.html %}	        
+
+</body>
+</html>

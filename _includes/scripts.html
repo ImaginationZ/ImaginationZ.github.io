@@ -1,0 +1,18 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ site.url }}/assets/js/scripts.min.js"></script>
+{% if site.google_analytics %}
+<!-- Asynchronous Google Analytics snippet -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+{% endif %}
+{% include mathjax.html %}
+{% if site.disqus_shortname and page.comments %}{% include disqus_comments.html %}{% endif %}
