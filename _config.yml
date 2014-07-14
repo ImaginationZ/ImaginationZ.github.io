@@ -2,7 +2,7 @@ title:            Zen.
 description:      A personal website.
 disqus_shortname: izeng
 #Comment out url when working locally to resolve base urls correctly
-url:              http://zeng.photography
+url:              #http://zeng.photography
 
 # Owner/author information
 owner:
