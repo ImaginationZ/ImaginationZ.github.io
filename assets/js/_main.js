@@ -13,7 +13,7 @@ $(function() {
 });
 
 $(".close-menu").click(function () {
-  $(".menu").toggleClass("enabled");
+  $(".menu").toggleClass("disabled");
   $(".links").toggleClass("enabled");
 });
 

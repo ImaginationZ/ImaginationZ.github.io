@@ -1,15 +1,17 @@
 title:            Zen.
 description:      A personal website.
-disqus_shortname: izeng
-#Comment out url when working locally to resolve base urls correctly
-url:              #http://zeng.photography
+disqus_shortname: zengphotography
+reading_time:     true
+words_per_minute: 200
+#Your site's domain goes here. Leave localhost server or blank when working locally.
+url:              http://zeng.photography
 
 # Owner/author information
 owner:
   name:           Zen
   avatar:         avatar.jpg
   bio:            A nerd studying CS, art lover, photographer, idiot designer
-  email:          
+  email:
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       frequencyhzs
@@ -21,14 +23,16 @@ owner:
   tumblr:         
   500px:          #frequencyhzs
   renren:         333784121
-  weibo:          1937357261
+  weibo:          1937357261        
   # For Google Authorship https://plus.google.com/authorship
   google_plus:   
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:  
-google_verify:      
+# Background image to be tiled on all pages
+background: 
 
+# Analytics and webmaster tools stuff goes here
+google_analytics:   
+google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
 
@@ -46,12 +50,11 @@ pygments:    true
 markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /blog/:categories/:year/:month/:title.html
+permalink:   /blog/:categories/:title/
 
 # Amount of post to show on home page
 paginate: 5
 paginate_path: /blog/page:num
-
 
 kramdown:
   auto_ids: true
