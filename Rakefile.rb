@@ -34,8 +34,9 @@ task :new_post, :title do |t, args|
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
     post.puts "modified: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
     post.puts "tags: [#{tags}]"
+    num = 1 + rand(12)
     post.puts "image:"
-    post.puts "  feature: "
+    post.puts "  feature: abstrat-#{num}.jpg"
     post.puts "  credit: "
     post.puts "  creditlink: "
     post.puts "comments: "
@@ -65,8 +66,9 @@ task :new_page, :title do |t, args|
     page.puts "title: \"#{title}\""
     page.puts "modified: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     page.puts "tags: [#{tags}]"
-    page.puts "image:"
-    page.puts "  feature: "
+    num = 1 + rand(12)
+    page.puts "image: "
+    page.puts "  feature: abstrat-#{num}.jpg"
     page.puts "  credit: "
     page.puts "  creditlink: "
     page.puts "share: "

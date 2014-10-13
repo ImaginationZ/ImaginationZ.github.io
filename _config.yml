@@ -2,7 +2,7 @@ title:            Zen.
 description:      A personal website.
 disqus_shortname: zengphotography
 reading_time:     true
-words_per_minute: 200
+words_per_minute: 60
 #Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://zeng.photography
 
