@@ -40,7 +40,7 @@ bing_verify:
 # For external links add external: true
 links:
   - title: portfolio
-    url: 
+    url: http://lofter.zeng.photography
     external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
