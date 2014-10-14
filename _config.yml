@@ -39,6 +39,9 @@ bing_verify:
 # Links to include in top navigation
 # For external links add external: true
 links:
+  - title: 500px
+    url: https://500px.com/frequencyhzs
+    external: true
   - title: portfolio
     url: http://lofter.zeng.photography
     external: true
