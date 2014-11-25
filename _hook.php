@@ -66,7 +66,7 @@ if ( isset($data) ) {
         die($output);
     }
 
-    exec("rsync -r --delete {$LOCAL_REPO}/_site {$LOCAL_DST}");
+    exec("rsync -r --delete {$LOCAL_REPO}/_site/ {$LOCAL_DST}");
 
     die(date('l jS \of F Y h:i:s A') . ": " . "done.");
 }
