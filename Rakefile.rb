@@ -4,7 +4,7 @@ require "stringex"
 
 ## -- Config -- ##
 
-public_dir      = "public"    # compiled site directory
+public_dir      = "public"    # compiled site director
 posts_dir       = "_posts"    # directory for blog files
 new_post_ext    = "md"  # default new post file extension when using the new_post task
 new_page_ext    = "md"  # default new page file extension when using the new_page task
@@ -39,8 +39,8 @@ task :new_post, :title do |t, args|
     post.puts "  feature: abstrat-#{num}.jpg"
     post.puts "  credit: "
     post.puts "  creditlink: "
-    post.puts "comments: "
-    post.puts "share: "
+    post.puts "comments: true "
+    post.puts "share: true"
     post.puts "---"
   end
 end
