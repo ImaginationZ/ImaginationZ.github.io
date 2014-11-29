@@ -47,7 +47,7 @@ image:
       {% if paginator.page == 1 %}
         <span class="current-page">1</span>
       {% else %}
-        <a href="{{ site.url }}">1</a>
+        <a href="{{ site.url }}/blog">1</a>
       {% endif %}
     </li>
     {% for count in (2..paginator.total_pages) %}
