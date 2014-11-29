@@ -18,7 +18,7 @@ which might be the key feature causing system boot failure described below.
 After installing the system file along with the bootloader (grub2),
 the computer reboots, loads the grub2, and then try to boot the linux kernel located in `\boot`.
 However after a short waiting,
-the bootloader cannot boot up the kernel file and outputs `ALERT! /dev/disk/by-uuid/xxxxxxxxx does not exist. Dropping to a shell` .
+the bootloader cannot boot up the kernel file and outputs
 
 ~~~ bash
 ALERT! /dev/disk/by-uuid/xxxxxxxxx does not exist. Dropping to a shell
