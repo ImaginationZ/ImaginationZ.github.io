@@ -4,7 +4,7 @@ title: "Cheat for newbies learning Lua"
 modified: 2014-11-26 20:05:47 +0800
 tags: [IT, program, Geek]
 image:
-  feature: abstrat-6.jpg
+  feature: abstract-6.jpg
   credit: 
   creditlink: 
 comments: true

@@ -39,7 +39,16 @@ must accept the ebb and flow of things
 
 ## What's the problem nowadays?
 
-* Different Platform:Windows,Mac,Linux,iOS,Android,WP 7,WebOS,Chrome OS...
+* Different Platform:
+	* Windows
+	* Mac 
+	* Linux 
+	* iOS
+	* Android
+	* WP 7
+	* WebOS
+	* Chrome OS
+	* ...
 * Plenty of devices
 * Multiple resolutions
 * Landscape & portrait

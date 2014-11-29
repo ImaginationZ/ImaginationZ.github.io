@@ -36,7 +36,7 @@ task :new_post, :title do |t, args|
     post.puts "tags: [#{tags}]"
     num = 1 + rand(12)
     post.puts "image:"
-    post.puts "  feature: abstrat-#{num}.jpg"
+    post.puts "  feature: abstract-#{num}.jpg"
     post.puts "  credit: "
     post.puts "  creditlink: "
     post.puts "comments: true "
