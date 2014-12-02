@@ -10,7 +10,7 @@ image:
 comments: true 
 share: true
 ---
-Today I successed in porting the Deep Matching algorithm & tools from [LEAR]:(http://lear.inrialpes.fr/people/revaud/) to Ubuntu.
+Today I successed in porting the Deep Matching algorithm & tools from [LEAR](http://lear.inrialpes.fr/people/revaud/) to Ubuntu.
 The algorithm itself is a stand-of-art solution to mutipal questions concerning image matching,
 comes with a easy-understanding code.
 However the author did not mention the dependency request of tools he used,
