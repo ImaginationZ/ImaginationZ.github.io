@@ -20,7 +20,7 @@ hence the compile&install takes me quite a long time.
 First to first,
 using `apt-get` to fix dependency.
 Take a look into `Makefile`,
-we have (although the default `make` method did not use this)
+we have (although the default `make` method does not call this)
 
 ~~~
 STATICLAPACKLDFLAGS=-static -static-libstdc++ /usr/lib64/libjpeg.a /usr/lib64/libpng.a /usr/lib64/libz.a /usr/lib64/libblas.a /usr/lib/gcc/x86_64-redhat-linux/4.7.2/libgfortran.a  # statically linked version
@@ -28,7 +28,7 @@ STATICLAPACKLDFLAGS=-static -static-libstdc++ /usr/lib64/libjpeg.a /usr/lib64/li
 
 Which briefly declares the dependecy.
 In the following codes I'm omitting `sudo`,
-however most steps corcerning system-libary installation should be executed as root.
+however most steps should be executed as root.
 
 ~~~ bash
 apt-get install libjepg-dev
@@ -36,8 +36,8 @@ apt-get install libpng-dev
 apt-get install libatlas-base-dev libatlas-dev
 ~~~
 
-The following commands should add the corresponding `.h` file to gcc include search path.
-However it's just the beginning:
+The following commands should add the corresponding `.h` file to search path.
+It's just the beginning:
 Ubuntu itself includes `libjpeg`, `libpng` and some other tools the program uses in its kernel include path,
 hence a fix is taken to link such libaries to `/usr/lib/`
 
@@ -77,5 +77,5 @@ In `STATICLAPACKLDFLAGS`, Change all `usr/lib64/` to `usr/lib/`,
 and change `x86_64-redhat-linux` in the last argument to something like `/x86_64-linux-gnu` which is the folder name occurs in `/usr/lib`.
 Finally change `all: deepmatching` to `all: deepmatching-static`.
 
-Now calling the static-link method by `make`.
+Now call the static-link method by `make`.
 Happy deep-matching.
