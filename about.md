@@ -9,4 +9,4 @@ share: true
 ---
 我在那一角落患过抽风
 
-For academic details, please refer to my [resume]({{site.url}}resume)
+For academic details, please refer to my [resume]({{site.url}}/resume)
