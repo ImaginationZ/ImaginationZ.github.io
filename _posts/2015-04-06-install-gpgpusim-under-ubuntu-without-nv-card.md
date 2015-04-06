@@ -9,5 +9,5 @@ image:
   creditlink: 
 comments: true 
 share: true
-link: {{ site.url }}assets/GPGPUsim.pdf
+link: http://zeng.photography/assets/GPGPUsim.pdf
 ---
